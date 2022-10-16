@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExportableFileTemplateSettings">
+    <default_templates>
+      <template name="LintTest.kt" file-name="src/main/java/${NAME}" reformat="true" live-template-enabled="false">
+        <template name="LintTest.kt.child.2.txt" file-name="src/test/resources/${NAME}DetectorTest/testFix" reformat="true" live-template-enabled="false" />
+        <template name="LintTest.kt.child.0.kt" file-name="src/test/java/${NAME}DetectorTest" reformat="true" live-template-enabled="false" />
+        <template name="LintTest.kt.child.1.txt" file-name="src/test/resources/${NAME}DetectorTest/testLint" reformat="true" live-template-enabled="false" />
+      </template>
+      <template name="LintTest.kt.child.0.kt" file-name="src/test/java/${NAME}DetectorTest" reformat="true" live-template-enabled="false" />
+      <template name="LintTest.kt.child.1.txt" file-name="src/test/resources/${NAME}DetectorTest/testLint" reformat="true" live-template-enabled="false" />
+      <template name="LintTest.kt.child.2.txt" file-name="src/test/resources/${NAME}DetectorTest/testFix" reformat="true" live-template-enabled="false" />
+    </default_templates>
+  </component>
+</project>

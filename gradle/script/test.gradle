@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/gradle/script/common.gradle"
+
+android {
+    lintOptions {
+        abortOnError false
+        textReport true
+    }
+}
+
+dependencies {
+    def moduleProjectName = ":${project.name.replace("-test", "")}"
+    implementation project(":core-test")
+    if (findProject(moduleProjectName) != null) {
+        implementation project(moduleProjectName)
+    }
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "com.android.tools.lint:lint:$lintVersion"
+    testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
+    testImplementation project(":core-lint")
+    if (findProject("$moduleProjectName-lint") != null) {
+        testImplementation project("$moduleProjectName-lint")
+    }
+}

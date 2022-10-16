@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/gradle/script/common.gradle"
+
+android {
+    namespace 'com.wada811.adx'
+}
+
+dependencies {
+    rootProject.file("module").eachDir {
+        api project(":${it.name}")
+    }
+}

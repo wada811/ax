@@ -1,0 +1,15 @@
+apply plugin: 'application'
+apply plugin: 'org.jetbrains.kotlin.jvm'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+}
+
+mainClassName = "com.wada811.adx.core.generator.Generator"
