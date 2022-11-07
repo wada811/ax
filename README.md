@@ -6,6 +6,8 @@ ADX provides extension functions and lint.
 
 ## Installation
 
+[![Release](https://jitpack.io/v/wada811/adx.svg)](https://jitpack.io/#wada811/adx)
+
 ### ADX
 
 ```groovy
