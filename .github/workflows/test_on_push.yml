@@ -3,13 +3,13 @@ name: Test on push
 on:
   push:
     paths:
-      - .github
-      - adx
-      - core
-      - gradle
-      - lint
-      - module
-      - test
+      - .github/**
+      - adx/**
+      - core/**
+      - gradle/**
+      - lint/**
+      - module/**
+      - test/**
       - build.gradle
       - gradle.properties
       - settings.gradle
