@@ -2,6 +2,9 @@ apply plugin: 'com.android.library'
 apply from: "$rootDir/gradle/script/common.gradle"
 
 android {
+    defaultConfig {
+        namespace "com.wada811.adx.${project.name.toLowerCase(Locale.ROOT).replace("-", ".")}"
+    }
     lintOptions {
         abortOnError false
         textReport true
