@@ -9,6 +9,7 @@ import android.os.Parcelable
 import android.util.Size
 import android.util.SizeF
 import android.util.SparseArray
+import androidx.core.os.BundleCompat
 import java.io.Serializable
 
 inline fun <reified T : Any> Bundle.checkNotNullCatching(key: String, block: () -> T?): Result<T> = runCatching {
@@ -150,47 +151,20 @@ fun Bundle.getLongArrayOrThrow(key: String): LongArray = getLongArrayCatching(ke
 
 
 @Deprecated(message = "getParcelableCompat is hidden", replaceWith = ReplaceWith("this.getParcelableOrNull(key)"), level = DeprecationLevel.WARNING)
-inline fun <reified T : Parcelable> Bundle.getParcelableCompat(key: String): T? {
-    // TODO: Replace with BundleCompat.getParcelable when BundleCompat is released.
-    // https://issuetracker.google.com/issues/240585930
-    return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
-        getParcelable(key, T::class.java)
-    } else {
-        getParcelable(key) as? T
-    }
-}
-
+inline fun <reified T : Parcelable> Bundle.getParcelableCompat(key: String): T? = BundleCompat.getParcelable(this, key, T::class.java)
 inline fun <reified T : Parcelable> Bundle.getParcelableCatching(key: String): Result<T> = checkNotNullCatching(key) { getParcelableCompat(key) }
 inline fun <reified T : Parcelable> Bundle.getParcelableOrNull(key: String): T? = getParcelableCatching<T>(key).getOrNull()
 inline fun <reified T : Parcelable> Bundle.getParcelableOrThrow(key: String): T = getParcelableCatching<T>(key).getOrThrow()
 
+@Suppress("UNCHECKED_CAST")
 @Deprecated(message = "getParcelableArrayCompat is hidden", replaceWith = ReplaceWith("this.getParcelableArrayOrNull(key)"), level = DeprecationLevel.WARNING)
-inline fun <reified T : Parcelable> Bundle.getParcelableArrayCompat(key: String): Array<T>? {
-    // TODO: Replace with BundleCompat.getParcelableArray when BundleCompat is released.
-    // https://issuetracker.google.com/issues/240585930
-    return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
-        getParcelableArray(key, T::class.java) as? Array<T>
-    } else {
-        @Suppress("UNCHECKED_CAST")
-        getParcelableArray(key) as? Array<T>
-    }
-}
-
+inline fun <reified T : Parcelable> Bundle.getParcelableArrayCompat(key: String): Array<T>? = BundleCompat.getParcelableArray(this, key, T::class.java) as? Array<T>
 inline fun <reified T : Parcelable> Bundle.getParcelableArrayCatching(key: String): Result<Array<T>> = checkNotNullCatching(key) { getParcelableArrayCompat(key) }
 inline fun <reified T : Parcelable> Bundle.getParcelableArrayOrNull(key: String): Array<T>? = getParcelableArrayCatching<T>(key).getOrNull()
 inline fun <reified T : Parcelable> Bundle.getParcelableArrayOrThrow(key: String): Array<T> = getParcelableArrayCatching<T>(key).getOrThrow()
 
 @Deprecated(message = "getParcelableArrayListCompat is hidden", replaceWith = ReplaceWith("this.getParcelableArrayListOrNull(key)"), level = DeprecationLevel.WARNING)
-inline fun <reified T : Parcelable> Bundle.getParcelableArrayListCompat(key: String): ArrayList<T>? {
-    // TODO: Replace with BundleCompat.getParcelableArrayList when BundleCompat is released.
-    // https://issuetracker.google.com/issues/240585930
-    return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
-        getParcelableArrayList(key, T::class.java)
-    } else {
-        getParcelableArrayList<T>(key)
-    }
-}
-
+inline fun <reified T : Parcelable> Bundle.getParcelableArrayListCompat(key: String): ArrayList<T>? = BundleCompat.getParcelableArrayList(this, key, T::class.java)
 inline fun <reified T : Parcelable> Bundle.getParcelableArrayListCatching(key: String): Result<ArrayList<T>> = checkNotNullCatching(key) { getParcelableArrayListCompat(key) }
 inline fun <reified T : Parcelable> Bundle.getParcelableArrayListOrNull(key: String): ArrayList<T>? = getParcelableArrayListCatching<T>(key).getOrNull()
 inline fun <reified T : Parcelable> Bundle.getParcelableArrayListOrEmpty(key: String): ArrayList<T> = getParcelableArrayListOrNull<T>(key) ?: ArrayList()
@@ -230,15 +204,7 @@ fun Bundle.getSizeFOrNull(key: String): SizeF? = getSizeFCatching(key).getOrNull
 fun Bundle.getSizeFOrThrow(key: String): SizeF = getSizeFCatching(key).getOrThrow()
 
 @Deprecated(message = "getSerializableCompat is hidden", replaceWith = ReplaceWith("this.getSerializableOrNull(key)"), level = DeprecationLevel.WARNING)
-inline fun <reified T : Parcelable> Bundle.getSparseParcelableArrayCompat(key: String): SparseArray<T>? {
-    // https://issuetracker.google.com/issues/240585930
-    return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
-        getSparseParcelableArray(key, T::class.java)
-    } else {
-        getSparseParcelableArray<T>(key)
-    }
-}
-
+inline fun <reified T : Parcelable> Bundle.getSparseParcelableArrayCompat(key: String): SparseArray<T>? = BundleCompat.getSparseParcelableArray(this, key, T::class.java)
 inline fun <reified T : Parcelable> Bundle.getSparseParcelableArrayCatching(key: String): Result<SparseArray<T>> = checkNotNullCatching(key) { getSparseParcelableArrayCompat(key) }
 inline fun <reified T : Parcelable> Bundle.getSparseParcelableArrayOrNull(key: String): SparseArray<T>? = getSparseParcelableArrayCatching<T>(key).getOrNull()
 inline fun <reified T : Parcelable> Bundle.getSparseParcelableArrayOrThrow(key: String): SparseArray<T> = getSparseParcelableArrayCatching<T>(key).getOrThrow()

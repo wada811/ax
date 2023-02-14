@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
+import androidx.core.content.IntentCompat
 import java.io.Serializable
 
 inline fun <reified T : Any> Intent.checkNotNullCatching(key: String, block: () -> T?): Result<T> = runCatching {
@@ -129,45 +130,20 @@ fun Intent.getLongArrayExtraOrNull(key: String): LongArray? = getLongArrayExtraC
 fun Intent.getLongArrayExtraOrThrow(key: String): LongArray = getLongArrayExtraCatching(key).getOrThrow()
 
 @Deprecated(message = "getParcelableExtraCompat is hidden", replaceWith = ReplaceWith("this.getParcelableExtraOrNull(key)"), level = DeprecationLevel.WARNING)
-inline fun <reified T : Parcelable> Intent.getParcelableExtraCompat(key: String): T? {
-    // https://issuetracker.google.com/issues/240585930
-    return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
-        getParcelableExtra(key, T::class.java)
-    } else {
-        getParcelableExtra(key) as? T
-    }
-}
-
+inline fun <reified T : Parcelable> Intent.getParcelableExtraCompat(key: String): T? = IntentCompat.getParcelableExtra(this, key, T::class.java)
 inline fun <reified T : Parcelable> Intent.getParcelableExtraCatching(key: String): Result<T> = checkNotNullCatching(key) { getParcelableExtraCompat(key) }
 inline fun <reified T : Parcelable> Intent.getParcelableExtraOrNull(key: String): T? = getParcelableExtraCatching<T>(key).getOrNull()
 inline fun <reified T : Parcelable> Intent.getParcelableExtraOrThrow(key: String): T = getParcelableExtraCatching<T>(key).getOrThrow()
 
+@Suppress("UNCHECKED_CAST")
 @Deprecated(message = "getParcelableArrayExtraCompat is hidden", replaceWith = ReplaceWith("this.getParcelableArrayExtraOrNull(key)"), level = DeprecationLevel.WARNING)
-inline fun <reified T : Parcelable> Intent.getParcelableArrayExtraCompat(key: String): Array<T>? {
-    // https://issuetracker.google.com/issues/240585930
-    return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
-        getParcelableArrayExtra(key, T::class.java)
-    } else {
-        @Suppress("UNCHECKED_CAST")
-        getParcelableArrayExtra(key) as? Array<T>
-    }
-}
-
+inline fun <reified T : Parcelable> Intent.getParcelableArrayExtraCompat(key: String): Array<T>? = IntentCompat.getParcelableArrayExtra(this, key, T::class.java) as? Array<T>
 inline fun <reified T : Parcelable> Intent.getParcelableArrayExtraCatching(key: String): Result<Array<T>> = checkNotNullCatching(key) { getParcelableArrayExtraCompat(key) }
 inline fun <reified T : Parcelable> Intent.getParcelableArrayExtraOrNull(key: String): Array<T>? = getParcelableArrayExtraCatching<T>(key).getOrNull()
 inline fun <reified T : Parcelable> Intent.getParcelableArrayExtraOrThrow(key: String): Array<T> = getParcelableArrayExtraCatching<T>(key).getOrThrow()
 
 @Deprecated(message = "getParcelableArrayListExtraCompat is hidden", replaceWith = ReplaceWith("this.getParcelableArrayListExtraOrNull(key)"), level = DeprecationLevel.WARNING)
-inline fun <reified T : Parcelable> Intent.getParcelableArrayListExtraCompat(key: String): ArrayList<T>? {
-    // https://issuetracker.google.com/issues/240585930
-    return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
-        getParcelableArrayListExtra(key, T::class.java)
-    } else {
-        @Suppress("UNCHECKED_CAST")
-        getParcelableArrayListExtra<T>(key)
-    }
-}
-
+inline fun <reified T : Parcelable> Intent.getParcelableArrayListExtraCompat(key: String): ArrayList<T>? = IntentCompat.getParcelableArrayListExtra(this, key, T::class.java)
 inline fun <reified T : Parcelable> Intent.getParcelableArrayListExtraCatching(key: String): Result<ArrayList<T>> = checkNotNullCatching(key) { getParcelableArrayListExtraCompat(key) }
 inline fun <reified T : Parcelable> Intent.getParcelableArrayListExtraOrNull(key: String): ArrayList<T>? = getParcelableArrayListExtraCatching<T>(key).getOrNull()
 inline fun <reified T : Parcelable> Intent.getParcelableArrayListExtraOrThrow(key: String): ArrayList<T> = getParcelableArrayListExtraCatching<T>(key).getOrThrow()
@@ -178,8 +154,7 @@ inline fun <reified T : Parcelable> Intent.getParcelableListExtraOrThrow(key: St
 
 @Deprecated(message = "getSerializableExtraCompat is hidden", replaceWith = ReplaceWith("this.getSerializableExtraOrNull(key)"), level = DeprecationLevel.WARNING)
 inline fun <reified T : Serializable> Intent.getSerializableExtraCompat(key: String): T? {
-    // https://issuetracker.google.com/issues/240585930
-    return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         getSerializableExtra(key, T::class.java)
     } else {
         getSerializableExtra(key) as? T
