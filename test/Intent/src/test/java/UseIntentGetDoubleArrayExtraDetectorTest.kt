@@ -1,10 +1,10 @@
 import com.android.tools.lint.checks.infrastructure.TestFile
 import com.android.tools.lint.detector.api.Issue
-import com.wada811.adx.core.test.DetectorTest
-import com.wada811.adx.core.test.kotlinFile
+import com.wada811.ax.core.test.DetectorTest
+import com.wada811.ax.core.test.kotlinFile
 
 class UseIntentGetDoubleArrayExtraDetectorTest : DetectorTest {
-    override val issue: Issue = com.wada811.adx.intent.lint.UseIntentGetDoubleArrayExtraDetector.ISSUE
+    override val issue: Issue = com.wada811.ax.intent.lint.UseIntentGetDoubleArrayExtraDetector.ISSUE
     override val testFiles: List<TestFile> = listOf(
         kotlinFile("src/main/java/UseIntentGetDoubleArrayExtra.kt")
     )
@@ -17,13 +17,13 @@ src/UseIntentGetDoubleArrayExtra.kt:5: Warning: Use getDoubleArrayExtraOrNull or
     override val expectedFixDiffs: String = """
 Fix for src/UseIntentGetDoubleArrayExtra.kt line 5: Replace with getDoubleArrayExtraOrNull:
 @@ -1 +1
-+ import com.wada811.adx.intent.getDoubleArrayExtraOrNull
++ import com.wada811.ax.intent.getDoubleArrayExtraOrNull
 @@ -5 +6
 -         intent.getDoubleArrayExtra("")
 +         intent.getDoubleArrayExtraOrNull("")
 Fix for src/UseIntentGetDoubleArrayExtra.kt line 5: Replace with getDoubleArrayExtraOrThrow:
 @@ -1 +1
-+ import com.wada811.adx.intent.getDoubleArrayExtraOrThrow
++ import com.wada811.ax.intent.getDoubleArrayExtraOrThrow
 @@ -5 +6
 -         intent.getDoubleArrayExtra("")
 +         intent.getDoubleArrayExtraOrThrow("")

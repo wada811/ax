@@ -1,10 +1,10 @@
 import com.android.tools.lint.checks.infrastructure.TestFile
 import com.android.tools.lint.detector.api.Issue
-import com.wada811.adx.core.test.DetectorTest
-import com.wada811.adx.core.test.kotlinFile
+import com.wada811.ax.core.test.DetectorTest
+import com.wada811.ax.core.test.kotlinFile
 
 class UseBundleGetLongDetectorTest : DetectorTest {
-    override val issue: Issue = com.wada811.adx.bundle.lint.UseBundleGetLongDetector.ISSUE
+    override val issue: Issue = com.wada811.ax.bundle.lint.UseBundleGetLongDetector.ISSUE
     override val testFiles: List<TestFile> = listOf(
         kotlinFile("src/main/java/UseBundleGetLong.kt")
     )
@@ -17,13 +17,13 @@ src/UseBundleGetLong.kt:5: Warning: Use getLongOrNull or getLongOrThrow [UseBund
     override val expectedFixDiffs: String = """
 Fix for src/UseBundleGetLong.kt line 5: Replace with getLongOrNull:
 @@ -1 +1
-+ import com.wada811.adx.bundle.getLongOrNull
++ import com.wada811.ax.bundle.getLongOrNull
 @@ -5 +6
 -         bundle.getLong("")
 +         bundle.getLongOrNull("")
 Fix for src/UseBundleGetLong.kt line 5: Replace with getLongOrThrow:
 @@ -1 +1
-+ import com.wada811.adx.bundle.getLongOrThrow
++ import com.wada811.ax.bundle.getLongOrThrow
 @@ -5 +6
 -         bundle.getLong("")
 +         bundle.getLongOrThrow("")

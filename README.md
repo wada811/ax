@@ -1,39 +1,39 @@
-# ADX: Android development extensions
+# 🪓 AX: Android Extensions
 
 ## Overview
 
-ADX provides extension functions and lint.
+AX provides extension functions and lint.
 
 ## Installation
 
-[![Release](https://jitpack.io/v/wada811/adx.svg)](https://jitpack.io/#wada811/adx)
+[![Release](https://jitpack.io/v/wada811/ax.svg)](https://jitpack.io/#wada811/ax)
 
 ### ADX
 
 ```groovy
-implementation "com.github.wada811.adx:adx:$version"
+implementation "com.github.wada811.ax:ax:$version"
 ```
 
 ### ActivityResultLauncher
 
 ```groovy
-implementation "com.github.wada811.adx:ActivityResultLauncher:$version"
+implementation "com.github.wada811.ax:ActivityResultLauncher:$version"
 ```
 
 ### Bundle
 
 ```groovy
-implementation "com.github.wada811.adx:Bundle:$version"
+implementation "com.github.wada811.ax:Bundle:$version"
 ```
 
 ### Context
 
 ```groovy
-implementation "com.github.wada811.adx:Context:$version"
+implementation "com.github.wada811.ax:Context:$version"
 ```
 
 ### Intent
 
 ```groovy
-implementation "com.github.wada811.adx:Intent:$version"
+implementation "com.github.wada811.ax:Intent:$version"
 ```

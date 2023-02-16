@@ -1,8 +1,8 @@
 import com.android.tools.lint.checks.infrastructure.TestFile
 import com.android.tools.lint.detector.api.Issue
-import com.wada811.adx.context.lint.UseContextGetSystemServiceDetector
-import com.wada811.adx.core.test.DetectorTest
-import com.wada811.adx.core.test.kotlinFile
+import com.wada811.ax.context.lint.UseContextGetSystemServiceDetector
+import com.wada811.ax.core.test.DetectorTest
+import com.wada811.ax.core.test.kotlinFile
 
 class UseContextGetSystemServiceDetectorTest : DetectorTest {
     override val issue: Issue = UseContextGetSystemServiceDetector.ISSUE

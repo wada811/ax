@@ -1,8 +1,8 @@
 import com.android.tools.lint.checks.infrastructure.TestFile
 import com.android.tools.lint.detector.api.Issue
-import com.wada811.adx.bundle.lint.UseBundleGetSerializableDetector
-import com.wada811.adx.core.test.DetectorTest
-import com.wada811.adx.core.test.kotlinFile
+import com.wada811.ax.bundle.lint.UseBundleGetSerializableDetector
+import com.wada811.ax.core.test.DetectorTest
+import com.wada811.ax.core.test.kotlinFile
 
 class UseBundleGetSerializableDetectorTest : DetectorTest {
     override val issue: Issue = UseBundleGetSerializableDetector.ISSUE

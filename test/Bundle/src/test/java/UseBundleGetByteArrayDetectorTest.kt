@@ -1,10 +1,10 @@
 import com.android.tools.lint.checks.infrastructure.TestFile
 import com.android.tools.lint.detector.api.Issue
-import com.wada811.adx.core.test.DetectorTest
-import com.wada811.adx.core.test.kotlinFile
+import com.wada811.ax.core.test.DetectorTest
+import com.wada811.ax.core.test.kotlinFile
 
 class UseBundleGetByteArrayDetectorTest : DetectorTest {
-    override val issue: Issue = com.wada811.adx.bundle.lint.UseBundleGetByteArrayDetector.ISSUE
+    override val issue: Issue = com.wada811.ax.bundle.lint.UseBundleGetByteArrayDetector.ISSUE
     override val testFiles: List<TestFile> = listOf(
         kotlinFile("src/main/java/UseBundleGetByteArray.kt")
     )
@@ -17,13 +17,13 @@ src/UseBundleGetByteArray.kt:5: Warning: Use getByteArrayOrNull or getByteArrayO
     override val expectedFixDiffs: String = """
 Fix for src/UseBundleGetByteArray.kt line 5: Replace with getByteArrayOrNull:
 @@ -1 +1
-+ import com.wada811.adx.bundle.getByteArrayOrNull
++ import com.wada811.ax.bundle.getByteArrayOrNull
 @@ -5 +6
 -         bundle.getByteArray("")
 +         bundle.getByteArrayOrNull("")
 Fix for src/UseBundleGetByteArray.kt line 5: Replace with getByteArrayOrThrow:
 @@ -1 +1
-+ import com.wada811.adx.bundle.getByteArrayOrThrow
++ import com.wada811.ax.bundle.getByteArrayOrThrow
 @@ -5 +6
 -         bundle.getByteArray("")
 +         bundle.getByteArrayOrThrow("")

@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - .github/**
-      - adx/**
+      - ax/**
       - core/**
       - gradle/**
       - lint/**

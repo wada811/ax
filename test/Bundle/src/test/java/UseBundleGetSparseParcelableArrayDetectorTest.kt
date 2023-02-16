@@ -1,8 +1,8 @@
 import com.android.tools.lint.checks.infrastructure.TestFile
 import com.android.tools.lint.detector.api.Issue
-import com.wada811.adx.bundle.lint.UseBundleGetSparseParcelableArrayDetector
-import com.wada811.adx.core.test.DetectorTest
-import com.wada811.adx.core.test.kotlinFile
+import com.wada811.ax.bundle.lint.UseBundleGetSparseParcelableArrayDetector
+import com.wada811.ax.core.test.DetectorTest
+import com.wada811.ax.core.test.kotlinFile
 
 class UseBundleGetSparseParcelableArrayDetectorTest : DetectorTest {
     override val issue: Issue = UseBundleGetSparseParcelableArrayDetector.ISSUE

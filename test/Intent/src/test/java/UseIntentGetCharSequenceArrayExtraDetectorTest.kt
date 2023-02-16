@@ -1,10 +1,10 @@
 import com.android.tools.lint.checks.infrastructure.TestFile
 import com.android.tools.lint.detector.api.Issue
-import com.wada811.adx.core.test.DetectorTest
-import com.wada811.adx.core.test.kotlinFile
+import com.wada811.ax.core.test.DetectorTest
+import com.wada811.ax.core.test.kotlinFile
 
 class UseIntentGetCharSequenceArrayExtraDetectorTest : DetectorTest {
-    override val issue: Issue = com.wada811.adx.intent.lint.UseIntentGetCharSequenceArrayExtraDetector.ISSUE
+    override val issue: Issue = com.wada811.ax.intent.lint.UseIntentGetCharSequenceArrayExtraDetector.ISSUE
     override val testFiles: List<TestFile> = listOf(
         kotlinFile("src/main/java/UseIntentGetCharSequenceArrayExtra.kt")
     )
@@ -17,13 +17,13 @@ src/UseIntentGetCharSequenceArrayExtra.kt:5: Warning: Use getCharSequenceArrayEx
     override val expectedFixDiffs: String = """
 Fix for src/UseIntentGetCharSequenceArrayExtra.kt line 5: Replace with getCharSequenceArrayExtraOrNull:
 @@ -1 +1
-+ import com.wada811.adx.intent.getCharSequenceArrayExtraOrNull
++ import com.wada811.ax.intent.getCharSequenceArrayExtraOrNull
 @@ -5 +6
 -         intent.getCharSequenceArrayExtra("")
 +         intent.getCharSequenceArrayExtraOrNull("")
 Fix for src/UseIntentGetCharSequenceArrayExtra.kt line 5: Replace with getCharSequenceArrayExtraOrThrow:
 @@ -1 +1
-+ import com.wada811.adx.intent.getCharSequenceArrayExtraOrThrow
++ import com.wada811.ax.intent.getCharSequenceArrayExtraOrThrow
 @@ -5 +6
 -         intent.getCharSequenceArrayExtra("")
 +         intent.getCharSequenceArrayExtraOrThrow("")

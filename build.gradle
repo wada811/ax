@@ -13,6 +13,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version "$kotlinVersion" apply false
 }
 
+apply from: "${rootDir}/publish-root.gradle"
+
 configurations.all {
     resolutionStrategy.force "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     resolutionStrategy.force "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVersion"

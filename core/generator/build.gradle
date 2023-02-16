@@ -12,4 +12,4 @@ compileKotlin {
     }
 }
 
-mainClassName = "com.wada811.adx.core.generator.Generator"
+mainClassName = "com.wada811.ax.core.generator.Generator"

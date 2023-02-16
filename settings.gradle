@@ -12,8 +12,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "adx"
-include ':adx'
+rootProject.name = "ax"
+include ':ax'
 file("core").eachDir {
     include ":core-${it.name}"
     project(":core-${it.name}").projectDir = it

@@ -3,7 +3,7 @@ apply from: "$rootDir/gradle/script/common.gradle"
 
 android {
     defaultConfig {
-        namespace "com.wada811.adx.${project.name.toLowerCase(Locale.ROOT).replace("-", ".")}"
+        namespace "com.wada811.ax.${project.name.toLowerCase(Locale.ROOT).replace("-", ".")}"
     }
     lintOptions {
         abortOnError false
