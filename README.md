@@ -6,34 +6,42 @@ AX provides extension functions and lint.
 
 ## Installation
 
-[![Release](https://jitpack.io/v/wada811/ax.svg)](https://jitpack.io/#wada811/ax)
+### AX
 
-### ADX
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/ax/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/ax)
 
 ```groovy
-implementation "com.github.wada811.ax:ax:$version"
+implementation "com.wada811.ax:ax:$version"
 ```
 
 ### ActivityResultLauncher
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/activityresultlauncher/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/activityresultlauncher)
+
 ```groovy
-implementation "com.github.wada811.ax:ActivityResultLauncher:$version"
+implementation "com.wada811.ax:activityresultlauncher:$version"
 ```
 
 ### Bundle
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/bundle/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/bundle)
+
 ```groovy
-implementation "com.github.wada811.ax:Bundle:$version"
+implementation "com.wada811.ax:bundle:$version"
 ```
 
 ### Context
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/context/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/context)
+
 ```groovy
-implementation "com.github.wada811.ax:Context:$version"
+implementation "com.wada811.ax:context:$version"
 ```
 
 ### Intent
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/intent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.wada811.ax/intent)
+
 ```groovy
-implementation "com.github.wada811.ax:Intent:$version"
+implementation "com.wada811.ax:intent:$version"
 ```
