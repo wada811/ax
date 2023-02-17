@@ -20,4 +20,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run Unit Test
-        run: ./gradlew testDebug
+        run: ./gradlew testDebugUnitTest
