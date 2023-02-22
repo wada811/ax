@@ -5,5 +5,5 @@ ext {
 apply from: "$rootDir/gradle/script/module.gradle"
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.10.0-alpha02'
+    implementation 'androidx.core:core-ktx:1.10.0-beta01'
 }
