@@ -1,6 +1,10 @@
 apply plugin: 'com.android.library'
 apply from: "$rootDir/gradle/script/common.gradle"
 
+android {
+    namespace "com.wada811.ax.core.test"
+}
+
 dependencies {
     implementation "junit:junit:4.13.2"
     implementation "com.android.tools.lint:lint:$lintVersion"
