@@ -5,5 +5,5 @@ ext {
 apply from: "$rootDir/gradle/script/module.gradle"
 
 dependencies {
-    compileOnly 'androidx.activity:activity-ktx:1.8.0'
+    compileOnly 'androidx.activity:activity-ktx:1.9.3'
 }
